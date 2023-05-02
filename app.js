@@ -30,7 +30,7 @@ app.use((error, req, res, next) => {
 const server = app.listen(configVal.server.port);
 
 db.getConnection().then((connection) => {
-  console.log("db connection!");
+	console.log('db connection!');
 });
 
 initSocket(server);
