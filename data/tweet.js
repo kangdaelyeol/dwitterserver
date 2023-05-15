@@ -1,8 +1,15 @@
 import { db } from '../db/db.js';
+import { sequelize } from '../db/db.js';
 
 const TWEETS_JOIN = 'SELECT tw.id, tw.text, tw.userId, tw.createAt, us.id, us.url, us.name, us.username FROM tweets as tw JOIN users as us ON tw.userId=us.id'
 const TWEETS_ORDERBY = "ORDER BY tw.createAt DESC"
 
+const Tweets = sequelize.define("tweets", {
+  
+}, {
+  modelName: "tweet",
+  timestamps: false
+})
 
 export async function getAll() {
   //  모든 트윗 정보를 받아오기
