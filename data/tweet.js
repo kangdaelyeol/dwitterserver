@@ -1,13 +1,24 @@
+import { DataTypes } from 'sequelize';
 import { db } from '../db/db.js';
 import { sequelize } from '../db/db.js';
 
 const TWEETS_JOIN = 'SELECT tw.id, tw.text, tw.userId, tw.createAt, us.id, us.url, us.name, us.username FROM tweets as tw JOIN users as us ON tw.userId=us.id'
 const TWEETS_ORDERBY = "ORDER BY tw.createAt DESC"
 
-const Tweets = sequelize.define("tweets", {
+const Tweets = sequelize.define("tweet", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    allowNull:false,
+    autoIncrement: true
+  },
+  text: {
+    type: DataTypes.STRING(128),
+    allowNull: false
+  },
   
 }, {
-  modelName: "tweet",
+  modelName: "tweets",
   timestamps: false
 })
 

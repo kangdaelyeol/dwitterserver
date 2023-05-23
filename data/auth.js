@@ -3,7 +3,8 @@ import { DataTypes } from 'sequelize';
 import { sequelize } from '../db/db.js';
 
 // abcd1234: $2b$12$G9xf8SFq3oTEgdj7ozHQ/uhDOyeQcUEDU8tnOcvpvApuadr3nE5Vm
-
+// you can define Table by calling sequelize.define("tableName", {attribute, domain} - schema, options)
+// In general, sequlize set createdAt, updatedAt as 'timestamps'. if you don't want it you can give {timestamps: false} in Options.
 const User = sequelize.define(
 	'user',
 	{
